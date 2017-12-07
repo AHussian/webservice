@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { docker 'maven:alpine' }
     stages {
         stage('build') {
             steps {
