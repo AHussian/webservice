@@ -1,10 +1,12 @@
 pipeline {
-  
-  stages {
-    stage('build') {
-      steps {
-        sh 'mvn -B -DskipTests clean package'
-      }
+    agent { docker 'maven:3.3.3' }
+    stages {
+        stage('build') {
+            steps {
+                sh 'mvn --version'
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
     }
-  }
 }
+
